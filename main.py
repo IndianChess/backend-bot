@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins for simplicity, restrict in production
 
 client = Client("vilarin/Llama-3.1-8B-Instruct")
 
@@ -30,3 +30,6 @@ def chat():
         return jsonify({"response": result})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000)

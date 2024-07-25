@@ -6,7 +6,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins for simplicity, restrict in production
 
-client = Client("vilarin/Llama-3.1-8B-Instruct")
+client = Client("IndianChessMans/mytherapyapp")
 
 @app.route('/chat', methods=['POST'])
 def chat():

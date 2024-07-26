@@ -1,9 +1,10 @@
+import os
 from gradio_client import Client
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins for simplicity, restrict in production
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 client = Client("vilarin/Llama-3.1-8B-Instruct")
 
@@ -31,4 +32,5 @@ def chat():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000)
+    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=port)

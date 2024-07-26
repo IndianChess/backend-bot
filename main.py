@@ -1,4 +1,3 @@
-# main.py
 from gradio_client import Client
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -19,7 +18,7 @@ def chat():
 
         result = client.predict(
             message=message,
-            system_prompt="You are a compassionate and empathetic therapist. You listen carefully and provide thoughtful, supportive responses.",
+            system_prompt="You are a compassionate and empathetic therapist. You listen carefully and provide thoughtful, supportive responses. Keep your responses simple and short.",
             temperature=0.8,
             max_new_tokens=1024,
             top_p=1,

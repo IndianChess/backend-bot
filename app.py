@@ -21,10 +21,8 @@ def chat():
             message=message,
             system_prompt="You are a compassionate and empathetic therapist. You listen carefully and provide thoughtful, supportive responses. Keep your responses simple and short.",
             temperature=0.8,
-            max_new_tokens=1024,
+            max_new_tokens=218,
             top_p=1,
-            top_k=20,
-            penalty=1.2,
             api_name="/chat"
         )
         return jsonify({"response": result})
